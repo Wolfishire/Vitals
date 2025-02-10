@@ -1,0 +1,243 @@
+name: Vitals
+version: 1.06
+author: pzxc
+website: http://6d7.com/
+depend: [Vault, mcMMO, NametagEdit]
+main: com.pzxc.Vitals.Vitals
+commands:
+  vhelp:
+    description: List the current vitals settings from memory, or shows the size of hashmaps running in memory, or lists the latest 10 entries from the events log
+    usage: /<command> [settings,memory,events]
+  vreload:
+    description: Reload any changes made to the config.yml file while the server was running
+    usage: /<command>
+  vtoggle:
+    description: Turn a Vitals module on or off
+    usage: /<command> <modulename>
+  vsetting:
+    description: Change a Vitals setting from in-game, without the need to edit the config.yml file.
+    usage: /<command> <setting> <value>
+  countdown:
+    description: Initiate a countdown
+    usage: /<command> <seconds> <message>
+  hero:
+    description: Check your hero points.
+    usage: /<command>
+permissions:
+  v.admin:
+    description: Can use /vhelp, /vtoggle, /vsetting, /vreload, and perform setup/administration commands for all the modules
+    default: op
+  v.eventbroadcasts:
+    description: Can see all event broadcasts (auctions, arena, etc) (negate this permission to mute)
+    default: true
+  v.announce:
+    description: Can list/add/edit/remove announcements with /announce
+    default: op
+  v.antiadvertising.bypass:
+    description: Can send domains and IP addresses in chat
+    default: op
+  v.anticaps.bypass:
+    description: Can talk in all caps
+    default: op
+  v.arena:
+    description: Can participate in arenas with /arena
+    default: true
+  v.auction:
+    description: Can put an item up for auction with /auction
+    default: op
+  v.auction.bid:
+    description: Can bid in an auction with /bid [amount]
+    default: true
+  v.auction.skipqueue:
+    description: Can auction repeatedly without waiting for someone else
+    default: op
+  v.auction.startingbid:
+    description: Can use /auction [startingbid]
+    default: op
+  v.bb:
+    description: Can use /bb
+    default: op
+  v.bounty:
+    description: Can list bounties with /bounty
+    default: true
+  v.bounty.buy:
+    description: Can purchase a bounty with /bounty [player] [amount]
+    default: true
+  v.buyrank:
+    description: Can buy promotions with /buyrank
+    default: true
+  v.chatworlds.bypass:
+    description: Can see chat messages from all worlds even if Chatworlds is enabled
+    default: op
+  v.chunkregen:
+    description: Can use /chunkregen
+    default: op
+  v.countdown:
+    description: Can start a countdown with /countdown [seconds] [message]
+    default: op
+  v.customwarp:
+    description: Can define a custom warp with /customwarp [warpname], or delete with /customwarp [warpname] delete
+    default: op
+  v.customwarps.[warpname]:
+    description: Can use the custom warp /[warpname]
+    default: op
+  v.customwarps.*:
+    description: Can use all custom warps
+    default: op
+  v.date:
+    description: Can use /date
+    default: true
+  v.deathretention.xp:
+    description: Keep experience when you die
+    default: op
+  v.deathretention.allitems:
+    description: Keep all items when you die
+    default: op
+  v.deathretention.armor:
+    description: Keep armor when you die
+    default: false
+  v.deathretention.weapons:
+    description: Keep weapons (swords,axes,bows,arrows) when you die
+    default: false
+  v.deathretention.tools:
+    description: Keep tools (axes,pickaxes,shovels,hoes) when you die
+    default: false
+  v.deathretention.hotbar:
+    description: Keep items in your hotbar when you die
+    default: false
+  v.deathretention.free:
+    description: Bypasses the cost associated with death retention in the config
+    default: false
+  v.findplot:
+    description: Can find the cheapest plot for sale with /findplot
+    default: op
+  v.findmyplot:
+    description: Can find your own plot with /findmyplot
+    default: true
+  v.findmyplot.others:
+    description: Can find the plots of other players with /findmyplot [player] [plot#]
+    default: op
+  v.gmall:
+    description: Can see gamemode of all online players /gmall, or specific player with /gmall [player]
+    default: op
+  v.guild:
+    description: Can join guilds, and can use the /guild command
+    default: op
+  v.help:
+    description: Can use /help if BetterHelp is enabled
+    default: true
+  v.helperbot:
+    description: HelperBot will respond to your inquiries by searching for wordpairs and giving a response
+    default: true
+  v.honor:
+    description: Can use /honor to check honor of nearby players
+    default: true
+  v.honor.hidden:
+    description: Honor is hidden from /honor list
+    default: op
+  v.market:
+    description: Can sell items at a marketplace with /market [pricePerUnit]
+    default: op
+  v.miningspy:
+    description: Can use /miningspy to see when players mine diamonds
+    default: op
+  v.news:
+    description: Can use /news if BetterNews is enabled
+    default: true
+  v.password:
+    description: Can use /password
+    default: true
+  v.playtime:
+    description: Can see your own playtime with /playtime
+    default: true
+  v.playtime.average:
+    description: Can see average daily playtime as well as total playtime on all playtime reports
+    default: op
+  v.playtime.others:
+    description: Can see playtime of other players with /playtime [player]
+    default: op
+  v.playtime.top:
+    description: Can use /playtime top, the list of players with the most playtime
+    default: op
+  v.plotsalesign:
+    description: Can place a grass/wool FOR SALE pattern on the current plot with /plotsalesign
+    default: op
+  v.restrictedplots.buy:
+    description: Can buy plots that are for sale at the restricted price
+    default: op
+  v.room:
+    description: Can manage a room with the /room command
+    default: true
+  v.survey.general:
+    description: Can start a survey with /survey [reward] [yes-or-no-question]
+    default: op
+  v.survey.eval:
+    description: Can start a moderator evaluation with /eval [name]
+    default: op
+  v.chatsymbols:
+    description: Can use unicode symbols in chat (/chatsymbols for list)
+    default: op
+  v.unlock.BlazerodFireball:
+    description: Can right-click with a blaze rod to cast a fireball (uses up the blaze rod)
+    default: op
+  v.unlock.BouncySponges:
+    description: Sponges make you bounce when you step on them, and you take no falling damage when landing on a sponge
+    default: op
+  v.unlock.EmeraldblockHaste:
+    description: Emerald blocks make you sprint when you walk on them
+    default: op
+  v.unlock.FeatherFly:
+    description: Right-clicking with a feather lets you fly, but it uses up feathers over time
+    default: op
+  v.unlock.SafeJukebox:
+    description: Clicking a jukebox with a record plays the record without inserting it into the jukebox
+    default: op
+  v.unlock.MithrilChainmail:
+    description: Your chainmail armor provides damage reduction
+    default: op
+  v.unlock.ThermalCompass:
+    description: Your compass points at the nearest player
+    default: op
+  v.villagerpermission:
+    description: Can trade with villagers
+    default: op
+  v.poll:
+    description: Can vote in polls or mod evaluations with /vote [yes/no]
+    default: true
+  v.poll.general:
+    description: Can start general polls with /poll [reward] [yes-or-no-question]
+    default: op
+  v.poll.modvote:
+    description: Can start modvote polls with /modvote [name]
+    default: op
+  v.poll.demodvote:
+    description: Can start demodvote polls with /demodvote [name]
+    default: op
+  v.poll.free:
+    description: Can start polls for free, bypassing poll_fee
+    default: op
+  v.warn:
+    description: Can warn a player for inappropriate behavior with /warn [player] [reason]
+    default: op
+  v.warn.exempt:
+    description: Immune to /warn
+    default: op
+  v.warn.level1:
+    default: op
+  v.warn.level2:
+    default: op
+  v.warn.level3:
+    default: op
+  v.warn.level4:
+    default: op
+  v.warn.level5:
+    default: op
+  v.warn.level6:
+    default: op
+  v.warn.level7:
+    default: op
+  v.warn.level8:
+    default: op
+  v.wordswap:
+    description: Can use /wordswap
+    default: op
